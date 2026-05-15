@@ -6,6 +6,7 @@ vim.pack.add({
   { src = 'https://github.com/jayden-chan/base46.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/saghen/blink.cmp' },
+  { src = 'https://github.com/saghen/blink.lib' },
   { src = 'https://github.com/vimwiki/vimwiki' },
   { src = "https://github.com/kylechui/nvim-surround", version = "v3.1.8" },
   { src = 'https://github.com/neovim/nvim-lspconfig' },

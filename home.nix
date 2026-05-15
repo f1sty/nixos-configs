@@ -3,7 +3,20 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+  let
+    dotfiles = "${config.home.homeDirectory}/nixos/config";
+    create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+
+    configs = {
+      erlang_ls = "erlang_ls";
+      nvim = "nvim";
+      procps = "procps";
+      aria2 = "aria2";
+      flameshot  = "flameshot";
+      clangd = "clangd";
+    };
+  in {
   home.username = "f1sty";
   home.homeDirectory = "/home/f1sty";
   home.stateVersion = "25.11";
@@ -11,7 +24,7 @@
     "${config.home.homeDirectory}/.local/bin"
   ];
   home.packages = with pkgs; [
-    (pkgs.slstatus.overrideAttrs (_: {
+    (slstatus.overrideAttrs (_: {
       src = ./config/slstatus;
     }))
   ];
@@ -196,41 +209,6 @@
     };
   };
 
-  programs.aria2 = {
-    enable = true;
-    settings = {
-      dir = "${config.home.homeDirectory}/downloads/torrents";
-      log-level = "warn";
-      input-file = "${config.home.homeDirectory}/.config/aria2/files";
-      max-concurrent-downloads = 10;
-      check-integrity = true;
-      continue = true;
-      lowest-speed-limit = 0;
-      max-connection-per-server = 8;
-      min-split-size = "10M";
-      split = 10;
-      bt-seed-unverified = true;
-      bt-enable-lpd = true;
-      enable-dht6 = true;
-      follow-torrent = "mem";
-      max-overall-upload-limit = "512K";
-      max-upload-limit = "128K";
-      seed-time = 0;
-      follow-metalink = "mem";
-      daemon = false;
-      disk-cache = "16M";
-      enable-mmap = true;
-      file-allocation = "none";
-      optimize-concurrent-downloads = true;
-      show-console-readout = true;
-      max-overall-download-limit = 0;
-      max-download-limit = 0;
-      quiet = false;
-      save-session = "${config.home.homeDirectory}/.config/aria2/files";
-      save-session-interval = 0;
-    };
-  };
-
   programs.ripgrep = {
     enable = true;
     arguments = ["--hidden"];
@@ -379,24 +357,10 @@
       }'';
   };
 
-  xdg.configFile."clangd/config.yaml" = {
+  xdg.configFile = builtins.mapAttrs
+  (name: subpath: {
+    source = create_symlink "${dotfiles}/${subpath}";
     recursive = true;
-    text = ''
-      CompileFlags:
-        Add: [-I., -Wall]
-    '';
-  };
-
-  xdg.configFile."flameshot/flameshot.ini" = {
-    recursive = true;
-    text = ''
-      [General]
-      contrastOpacity=188
-      drawColor=#800080
-      drawThickness=1
-      savePath=${config.xdg.userDirs.pictures}/screenshots
-      savePathFixed=true
-      useGrimAdapter=true
-    '';
-  };
+  })
+  configs;
 }

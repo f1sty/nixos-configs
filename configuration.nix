@@ -166,6 +166,7 @@
   };
   programs.firefox.enable = true;
   programs.i3lock.enable = true;
+  programs.steam.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
