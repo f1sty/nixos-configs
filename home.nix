@@ -120,6 +120,7 @@
       nxr = "nixos-rebuild switch --sudo --flake";
       nxo = "nix-store --optimise";
       nxc = "nix-collect-garbage -d";
+      nxg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
     };
   };
 
