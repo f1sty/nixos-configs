@@ -29,6 +29,14 @@
 
   time.timeZone = "Europe/Kyiv";
 
+  # AI slop
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+    loadModels = [ "llama3.2:3b" "deepseek-r1:7b"];
+  };
+  services.open-webui.enable = true;
+
   services.xserver = {
     enable = true;
     autoRepeatDelay = 200;
