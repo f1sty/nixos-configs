@@ -133,6 +133,7 @@
     nasm
     neovim
     net-snmp
+    nethack
     nixd
     nmap
     nnn
@@ -143,6 +144,7 @@
     pwgen
     qemu
     radare2
+    remmina
     ripgrep
     rmpc
     rofi
