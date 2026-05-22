@@ -11,10 +11,15 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
-      systemd-boot = {
+      limine = {
         enable = true;
-        configurationLimit = 2;
+        efiSupport = true;
+        maxGenerations = 2;
       };
+      # systemd-boot = {
+      #   enable = true;
+      #   configurationLimit = 2;
+      # };
       efi.canTouchEfiVariables = true;
     };
     tmp.cleanOnBoot = true;
