@@ -16,10 +16,6 @@
         efiSupport = true;
         maxGenerations = 2;
       };
-      # systemd-boot = {
-      #   enable = true;
-      #   configurationLimit = 2;
-      # };
       efi.canTouchEfiVariables = true;
     };
     tmp.cleanOnBoot = true;
@@ -35,6 +31,22 @@
   time.timeZone = "Europe/Kyiv";
 
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_18;
+    ensureDatabases = [ "f1sty" ];
+    ensureUsers = [
+      {
+        name = "f1sty";
+        ensureDBOwnership = true;
+      }
+    ];
+    extensions =
+      ps: with ps; [
+        postgis
+      ];
+  };
 
   # AI slop
   services.ollama = {
@@ -87,9 +99,6 @@
   users.users.f1sty = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" "docker" "tty" "vboxusers"];
-    packages = with pkgs; [
-      tree
-    ];
   };
 
   virtualisation.docker.enable = true;

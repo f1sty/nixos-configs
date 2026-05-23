@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -69,6 +70,11 @@ static const char *termcmd[]  = { "alacritty", "-e", "tmux", NULL };
 static const char *browser[]  = { "firefox", NULL };
 static const char *browser_private[]  = { "firefox", "-private-window", NULL };
 static const char *clipboard[] = { "rofi", "-modi", "\"clipboard:greenclip print\"", "-show", "clipboard", NULL };
+static const char *volume_up[]  = { "wpctl", "set-volume", "@DEFAULT_SINK@", "2%+", NULL };
+static const char *volume_down[]  = { "wpctl", "set-volume", "@DEFAULT_SINK@", "2%-", NULL };
+static const char *mute_toggle[] = { "wpctl", "set-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *brightness_up[] = { "brightnessctl", "s", "5%+", NULL };
+static const char *brightness_down[] = { "brightnessctl", "s", "5%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -76,6 +82,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_v,      spawn,          {.v = clipboard } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browser } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browser_private } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ 0,                            XF86XK_MonBrightnessUp, spawn,          {.v = brightness_up } },
+	{ 0,                            XF86XK_MonBrightnessDown, spawn,          {.v = brightness_down } },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn,          {.v = volume_up } },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn,          {.v = volume_down } },
+	{ 0,                            XF86XK_AudioMute, spawn,          {.v = mute_toggle } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
