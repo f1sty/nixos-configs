@@ -176,6 +176,7 @@
     zoxide
   ];
 
+  programs.nix-index-database.comma.enable = true;
   programs.fzf = {
     fuzzyCompletion = true;
     keybindings = true;
