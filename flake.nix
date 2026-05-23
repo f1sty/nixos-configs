@@ -7,12 +7,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs @ {
     self,
     nixpkgs,
     nixos-hardware,
     home-manager,
+    nix-index-database,
     ...
   }: {
     nixosConfigurations.combobulator = nixpkgs.lib.nixosSystem {
@@ -20,6 +25,7 @@
       modules = [
         nixos-hardware.nixosModules.dell-xps-15-9530-nvidia
         ./configuration.nix
+        nix-index-database.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager = {
