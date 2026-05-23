@@ -65,7 +65,7 @@
       };
     };
     displayManager.sessionCommands = ''
-    xwallpaper --stretch ~/media/images/wallpapers/lantern.jpg
+    xwallpaper --stretch ~/media/images/wallpapers/train.png
     slstatus &
     '';
   };
