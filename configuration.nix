@@ -48,13 +48,6 @@
       ];
   };
 
-  # AI slop
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
-    loadModels = [ "llama3.2:3b" "deepseek-r1:7b"];
-  };
-
   services.xserver = {
     enable = true;
     autoRepeatDelay = 200;
@@ -112,6 +105,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     alejandra
+    android-file-transfer
     ardour
     aria2
     binwalk
