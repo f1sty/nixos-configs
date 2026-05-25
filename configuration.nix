@@ -163,6 +163,7 @@
     ripgrep
     rmpc
     rofi
+    rustdesk
     rustup
     socat
     sshfs
