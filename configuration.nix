@@ -48,6 +48,15 @@
       ];
   };
 
+  services.snmpd = {
+    enable = true;
+    configText = ''
+    agentaddress localhost:161
+    rocommunity public
+    rwcommunity private
+    '';
+  };
+
   services.xserver = {
     enable = true;
     autoRepeatDelay = 200;
@@ -91,7 +100,7 @@
 
   users.users.f1sty = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "docker" "tty" "vboxusers"];
+    extraGroups = ["wheel" "networkmanager" "docker" "tty" "vboxusers" "wireshark"];
   };
 
   virtualisation.docker.enable = true;
@@ -140,7 +149,6 @@
     minipro
     mpv
     nasm
-    neovim
     net-snmp
     nethack
     nixd
@@ -170,6 +178,7 @@
     wget
     winbox4
     wireguard-tools
+    wireshark
     xsel
     xwallpaper
     yt-dlp
@@ -188,6 +197,23 @@
   programs.firefox.enable = true;
   programs.i3lock.enable = true;
   programs.steam.enable = true;
+
+  programs.wireshark = {
+    enable = true;
+    dumpcap.enable = true;
+    usbmon.enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    withPython3 = true;
+    withRuby = true;
+    withNodeJs = true;
+  };
+
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka

@@ -83,13 +83,6 @@
     '';
   };
 
-  programs.neovim = {
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-  };
-
   programs.bash = {
     enable = true;
     enableCompletion = true;
