@@ -63,7 +63,7 @@
     autoRepeatInterval = 35;
     xkb = {
       layout = "us,ua";
-      options = "grp:shifts_toggle,terminate=ctrl_alt_bksp,compose=rctrl";
+      options = "grp:shifts_toggle,terminate:ctrl_alt_bksp,compose:rctrl";
     };
     windowManager.i3 = {
       enable = true;

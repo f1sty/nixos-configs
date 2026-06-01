@@ -20,6 +20,7 @@
   home.username = "f1sty";
   home.homeDirectory = "/home/f1sty";
   home.stateVersion = "25.11";
+  home.enableNixpkgsReleaseCheck = false;
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"
   ];
