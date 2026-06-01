@@ -71,6 +71,12 @@
   };
 
   programs.rmpc.enable = true;
+  programs.zathura = {
+    enable = true;
+    options = {
+      selection-clipboard = "clipboard";
+    };
+  };
   programs.readline = {
     enable = true;
     extraConfig = ''

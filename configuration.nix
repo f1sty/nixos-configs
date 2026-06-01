@@ -182,7 +182,6 @@
     xsel
     xwallpaper
     yt-dlp
-    zathura
     zig
     zig-shell-completions
     zls
