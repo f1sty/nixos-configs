@@ -5,16 +5,17 @@
   ...
 }:
   let
-    dotfiles = "${config.home.homeDirectory}/nixos/config";
+    dotfiles = "${config.home.homeDirectory}/nixos/dotfiles";
     create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
     configs = {
+      aria2 = "aria2";
+      clangd = "clangd";
       erlang_ls = "erlang_ls";
+      flameshot  = "flameshot";
       nvim = "nvim";
       procps = "procps";
-      aria2 = "aria2";
-      flameshot  = "flameshot";
-      clangd = "clangd";
+      weechat = "weechat";
     };
   in {
   home.username = "f1sty";
@@ -26,7 +27,7 @@
   ];
   home.packages = with pkgs; [
     (slstatus.overrideAttrs (_: {
-      src = ./config/slstatus;
+      src = dotfiles/slstatus;
     }))
   ];
 

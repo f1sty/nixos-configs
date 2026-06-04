@@ -75,7 +75,7 @@
     windowManager.dwm = {
       enable = true;
       package = pkgs.dwm.overrideAttrs {
-        src = ./config/dwm;
+        src = ./dotfiles/dwm;
       };
     };
     displayManager.sessionCommands = ''
@@ -176,6 +176,7 @@
     unrar
     unzip
     wget
+    weechat
     winbox4
     wireguard-tools
     wireshark
