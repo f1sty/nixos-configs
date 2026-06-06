@@ -180,6 +180,7 @@
     winbox4
     wireguard-tools
     wireshark
+    xdotool
     xsel
     xwallpaper
     yt-dlp

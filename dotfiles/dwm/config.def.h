@@ -75,12 +75,14 @@ static const char *volume_down[]  = { "wpctl", "set-volume", "@DEFAULT_SINK@", "
 static const char *mute_toggle[] = { "wpctl", "set-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *brightness_up[] = { "brightnessctl", "s", "5%+", NULL };
 static const char *brightness_down[] = { "brightnessctl", "s", "5%-", NULL };
+static const char *movetherat[] = { "xdotool", "mousemove", "0", "0", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = clipboard } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browser } },
+	{ MODKEY,                       XK_g,      spawn,          {.v = movetherat } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browser_private } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ 0,                            XF86XK_MonBrightnessUp, spawn,          {.v = brightness_up } },
