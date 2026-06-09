@@ -143,6 +143,7 @@
     jq
     killall
     libreoffice-fresh
+    liburing
     lm_sensors
     lsof
     man-pages

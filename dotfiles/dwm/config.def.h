@@ -76,6 +76,7 @@ static const char *mute_toggle[] = { "wpctl", "set-mute", "@DEFAULT_SINK@", "tog
 static const char *brightness_up[] = { "brightnessctl", "s", "5%+", NULL };
 static const char *brightness_down[] = { "brightnessctl", "s", "5%-", NULL };
 static const char *movetherat[] = { "xdotool", "mousemove", "0", "0", NULL };
+static const char *screenshot[] = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -83,6 +84,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_v,      spawn,          {.v = clipboard } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = movetherat } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browser_private } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ 0,                            XF86XK_MonBrightnessUp, spawn,          {.v = brightness_up } },
