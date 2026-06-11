@@ -142,6 +142,7 @@
     irssi
     jq
     killall
+    libinput
     libreoffice-fresh
     liburing
     lm_sensors
@@ -176,8 +177,8 @@
     ubridge
     unrar
     unzip
-    wget
     weechat
+    wget
     winbox4
     wireguard-tools
     wireshark
