@@ -118,7 +118,7 @@
     ardour
     aria2
     bitwig-studio
-    # binwalk
+    binwalk
     brightnessctl
     btop
     clang

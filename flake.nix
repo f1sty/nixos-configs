@@ -24,6 +24,22 @@
       specialArgs = {inherit inputs;};
       modules = [
         nixos-hardware.nixosModules.dell-xps-15-9530-nvidia
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [
+            (final: prev: {
+              python313Packages = prev.python313Packages.overrideScope (
+                pyfinal: pyprev: {
+                  uefi-firmware-parser =
+                    pyprev.uefi-firmware-parser.overridePythonAttrs (old: {
+                      nativeBuildInputs =
+                        (old.nativeBuildInputs or [])
+                        ++ [ pyfinal.setuptools-scm ];
+                    });
+                }
+              );
+            })
+          ];
+        })
         ./configuration.nix
         nix-index-database.nixosModules.default
         home-manager.nixosModules.home-manager
