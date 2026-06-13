@@ -117,7 +117,8 @@
     android-file-transfer
     ardour
     aria2
-    binwalk
+    bitwig-studio
+    # binwalk
     brightnessctl
     btop
     clang

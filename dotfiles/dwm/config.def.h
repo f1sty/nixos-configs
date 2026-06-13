@@ -77,7 +77,7 @@ static const char *brightness_up[] = { "brightnessctl", "s", "5%+", NULL };
 static const char *brightness_down[] = { "brightnessctl", "s", "5%-", NULL };
 static const char *movetherat[] = { "xdotool", "mousemove", "0", "0", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL };
-static const char *notes[] = { "alacritty", "-e", "nvim", "~/media/docs/notes.md", NULL };
+static const char *notes[] = { "alacritty", "-e", "nvim", "/home/f1sty/media/docs/notes.md", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
