@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }: {
@@ -153,7 +151,6 @@
     mpv
     nasm
     net-snmp
-    nethack
     nixd
     nmap
     nnn
@@ -164,7 +161,6 @@
     pwgen
     qemu
     radare2
-    remmina
     ripgrep
     rmpc
     rofi
@@ -190,7 +186,6 @@
     zig
     zig-shell-completions
     zls
-    zoxide
   ];
 
   programs.nix-index-database.comma.enable = true;
