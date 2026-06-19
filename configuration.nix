@@ -138,6 +138,7 @@
     gopls
     imv
     ipcalc
+    iperf
     irssi
     jq
     killall
