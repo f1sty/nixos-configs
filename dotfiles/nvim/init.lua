@@ -25,7 +25,7 @@ require("base46").load_theme({ base = "base46", theme = "pastelbeans", transpare
 require("blink.cmp").setup({ fuzzy = { implementation = "prefer_rust" }, keymap = { preset = "enter" } })
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
-vim.lsp.enable({ "lua_ls", "clangd", "zls", "elixirls", "nixd", "rust_analyzer", "ts_ls" })
+vim.lsp.enable({ "lua_ls", "clangd", "zls", "elixirls", "nil_ls", "rust_analyzer", "ts_ls" })
 vim.lsp.config("*", { capabilities = capabilities })
 
 vim.g.vimwiki_list = { { path = "/home/f1sty/media/docs/vimwiki", syntax = "markdown", ext = ".md", } }

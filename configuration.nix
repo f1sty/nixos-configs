@@ -152,10 +152,10 @@
     mpv
     nasm
     net-snmp
-    nixd
+    nil
     nmap
     nnn
-    ntfs3g
+    ntfsprogs-plus
     pass
     picocom
     powertop
