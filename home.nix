@@ -71,6 +71,9 @@
     };
   };
 
+  programs.opencode = {
+    enable = true;
+  };
   programs.rmpc.enable = true;
   programs.zathura = {
     enable = true;
@@ -96,7 +99,6 @@
     enableCompletion = true;
     bashrcExtra = ''
       shopt -so vi
-      shopt -so noclobber
       shopt -so pipefail
       source <(fzf --bash)
     '';

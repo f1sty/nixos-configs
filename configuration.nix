@@ -1,7 +1,8 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
   ];
@@ -49,9 +50,9 @@
   services.snmpd = {
     enable = true;
     configText = ''
-    agentaddress localhost:161
-    rocommunity public
-    rwcommunity private
+      agentaddress localhost:161
+      rocommunity public
+      rwcommunity private
     '';
   };
 
@@ -77,8 +78,8 @@
       };
     };
     displayManager.sessionCommands = ''
-    xwallpaper --stretch ~/media/images/wallpapers/train.png
-    slstatus &
+      xwallpaper --stretch ~/media/images/wallpapers/train.png
+      slstatus &
     '';
   };
 
@@ -98,7 +99,14 @@
 
   users.users.f1sty = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "docker" "tty" "vboxusers" "wireshark"];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+      "tty"
+      "vboxusers"
+      "wireshark"
+    ];
   };
 
   virtualisation.docker.enable = true;
@@ -214,7 +222,6 @@
     withNodeJs = true;
   };
 
-
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
     font-awesome
@@ -222,9 +229,12 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     auto-optimise-store = true;
-    allowed-users = ["f1sty"];
+    allowed-users = [ "f1sty" ];
   };
 
   hardware.nvidia.open = false;
@@ -249,7 +259,7 @@
   security.rtkit.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
-  networking.firewall.allowedTCPPorts = [22];
+  networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
   # system.copySystemConfiguration = true;
